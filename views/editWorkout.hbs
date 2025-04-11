@@ -1,0 +1,28 @@
+<h1 class="mb-4">Edit Workout</h1>
+
+<form action="/workouts/{{workout._id}}?_method=PUT" method="POST">
+  <div class="mb-3">
+    <label class="form-label">Workout Title:</label>
+    <input class="form-control" type="text" name="title" value="{{workout.title}}" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Select Profile:</label>
+    <select class="form-select" name="profileId" required>
+      {{#each profiles}}
+        <option value="{{this._id}}" {{#if (eq this._id ../workout.profile)}}selected{{/if}}>
+          {{this.name}} ({{this.height}} cm, {{this.weight}} kg)
+        </option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Duration (minutes):</label>
+    <input class="form-control" type="number" name="duration" value="{{workout.duration}}" required>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Update Workout</button>
+</form>
+
+<a class="btn btn-outline-secondary mt-3" href="/workouts">Back to Workouts</a>

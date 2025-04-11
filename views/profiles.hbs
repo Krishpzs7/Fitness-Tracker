@@ -1,0 +1,17 @@
+<h1 class="mb-4">Profiles</h1>
+
+<a class="btn btn-success mb-3" href="/profiles/new">Create New Profile</a>
+
+{{#if profiles.length}}
+  <ul class="list-group">
+    {{#each profiles}}
+      <li class="list-group-item">
+        <strong>{{this.name}}</strong> — Height: {{this.height}} cm, Weight: {{this.weight}} kg
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No profiles yet. <a href="/profiles/new">Create one now</a></p>
+{{/if}}
+
+<a class="btn btn-outline-secondary mt-3" href="/">Back to Home</a>

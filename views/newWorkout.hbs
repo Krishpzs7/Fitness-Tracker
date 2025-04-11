@@ -1,0 +1,27 @@
+<h1 class="mb-4">Add New Workout</h1>
+
+<form action="/workouts" method="POST">
+  <div class="mb-3">
+    <label class="form-label">Workout Title:</label>
+    <input class="form-control" type="text" name="title" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Select Profile:</label>
+    <select class="form-select" name="profileId" required>
+      <option value="">Select a profile</option>
+      {{#each profiles}}
+        <option value="{{this._id}}">{{this.name}} ({{this.height}} cm, {{this.weight}} kg)</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Duration (minutes):</label>
+    <input class="form-control" type="number" name="duration" required>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Add Workout</button>
+</form>
+
+<a class="btn btn-outline-secondary mt-3" href="/workouts">Back to Workouts</a>
