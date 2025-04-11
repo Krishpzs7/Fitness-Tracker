@@ -54,7 +54,7 @@ mongoose.connect(process.env.MONGO_URI, {
   console.error('MongoDB Connection Error:', err);
 });
 
-app.use('/', require('./routes/index'));
+app.use('/', require('./routes/workouts'));
 app.use('/workouts', require('./routes/workouts'));
 app.use('/profiles', require('./routes/profiles'));
 
